@@ -12,4 +12,11 @@ class HomepageController extends Controller
 
         return view('welcome', compact('prize'));
     }
+
+    public function details($id)
+    {
+        $prize = Prize::query()->with('image')->find($id);
+
+        return view('more_details', compact('prize'));
+    }
 }

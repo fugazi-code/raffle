@@ -13,7 +13,7 @@
                                     <p class="card-text">
                                     <div class="d-flex flex-row">
                                         {{--                                            <a href="#" class="btn btn-primary">Join Now</a>--}}
-                                        <a href="#" class="btn btn-primary">More Details</a>
+                                        <a href="{{ route('details.id', ['id' => $item->id]) }}" class="btn btn-primary">More Details</a>
                                     </div>
                                     </p>
                                     <p class="card-text">

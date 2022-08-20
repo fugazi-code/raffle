@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomepageController::class, 'index']);
+Route::get('details/{id}', [HomepageController::class, 'details'])->name('details.id');
 
 Auth::routes();
 

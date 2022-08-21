@@ -4,6 +4,8 @@ use App\Http\Controllers\ContestantController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ImageController;
+use App\Http\Livewire\Contestants;
+use App\Models\Contestant;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +29,6 @@ Auth::routes([
 ]);
 
 Route::middleware('auth:web')->group(function () {
-
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::post('/fetch/prize', [HomeController::class, 'fetchPrize'])->name('prize.fetch');
 
@@ -41,5 +42,5 @@ Route::middleware('auth:web')->group(function () {
     Route::post('/upload/images/{id}', [ImageController::class, 'upload'])->name('image.upload');
     Route::get('/delete/images/{id}', [ImageController::class, 'destroy'])->name('image.delete');
 
-    Route::get('/contestants/{id}', [ContestantController::class, 'show'])->name('contestant.index');
+    Route::get('/contestant', Contestants::class)->name('contestant.index');
 });

@@ -13,6 +13,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <x-throwexceptions::styles/>
+    @livewireStyles
 </head>
 <body>
     <div id="app">
@@ -71,9 +72,15 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @isset($slot)
+                {{ $slot }}
+            @else
+                @yield('content')
+            @endisset
         </main>
     </div>
     <x-throwexceptions::scripts/>
+
+    @livewireScripts
 </body>
 </html>

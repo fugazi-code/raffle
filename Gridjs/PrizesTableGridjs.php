@@ -12,8 +12,9 @@ class PrizesTableGridjs extends LaravelGridjs
     {
         return $this->setQuery(model: Prize::query())
                     ->editColumn('action', function ($row) {
-                        return '<a href="'.route('image.show', ['id' => $row['id']]).'" class="btn btn-sm btn-warning">Add Pics</a>
-                                <a href="'.route('prize.edit', ['prize' => $row['id']]).'" class="btn btn-sm btn-info">Edit</a>';
+                        return '<a href="'.route('image.show', ['id' => $row['id']]).'" class="btn btn-sm btn-warning"><i class="bx bx-image-add"></i></a>
+                                <a href="'.route('contestant.index', ['id' => $row['id']]).'" class="btn btn-sm btn-primary"><i class="bx bx-user-plus" ></i></a>
+                                <a href="'.route('prize.edit', ['prize' => $row['id']]).'" class="btn btn-sm btn-info"><i class="bx bxs-edit"></i></a>';
                     });
     }
 

@@ -37,7 +37,7 @@ class HomeController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'slot' => 'required|numeric',
+            'bet' => 'required|numeric',
             'is_published' => 'required',
             'description' => 'required',
             'code' => 'required|unique:prizes',
@@ -57,14 +57,14 @@ class HomeController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'slot' => 'required|numeric',
+            'bet' => 'required|numeric',
             'is_published' => 'required',
             'description' => 'required',
         ]);
 
         $prize = Prize::find($id);
         $prize->name = $validated['name'];
-        $prize->slot = $validated['slot'];
+        $prize->bet = $validated['bet'];
         $prize->is_published = $validated['is_published'];
         $prize->description = $validated['description'];
         $prize->save();

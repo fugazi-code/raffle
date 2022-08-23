@@ -21,17 +21,22 @@
                                 @endisset
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-4 mb-2">
+                                    <div class="col-md-3 mb-2">
                                         <label>Name</label>
                                         <input name="name" class="form-control"
                                                value="@isset($prize->name) {{ $prize->name }} @endisset">
                                     </div>
-                                    <div class="col-md-4 mb-2">
+                                    <div class="col-md-3 mb-2">
                                         <label>Code</label>
                                         <input name="code" class="form-control"
                                                value="@isset($prize->code) {{ $prize->code }} @endisset">
                                     </div>
-                                    <div class="col-md-4 mb-2">
+                                    <div class="col-md-3 mb-2">
+                                        <label>Bet</label>
+                                        <input type="text" name="bet" class="form-control"
+                                               value="@isset($prize->bet) {{ $prize->bet }} @endisset">
+                                    </div>
+                                    <div class="col-md-3 mb-2">
                                         <label>is Published</label>
                                         <select name="is_published" class="form-select">
                                             @isset($prize->is_published)
@@ -46,11 +51,6 @@
                                                 <option value="1">Yes, publish it now!</option>
                                             @endisset
                                         </select>
-                                    </div>
-                                    <div class="col-6 col-md-2 mb-2">
-                                        <label>Slot</label>
-                                        <input type="text" name="slot" class="form-control"
-                                               value="@isset($prize->slot) {{ $prize->slot }} @endisset">
                                     </div>
                                     <div class="col-12 mb-2">
                                         <label>Description</label>

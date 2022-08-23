@@ -12,7 +12,7 @@ class Prize extends Model
 
     protected $fillable =[
         'name',
-        'slot',
+        'bet',
         'code',
         'is_published',
         'description',

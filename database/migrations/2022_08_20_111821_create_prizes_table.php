@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('prizes', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->text('slot');
             $table->string('code');
+            $table->integer('bet');
             $table->text('description')->nullable();
             $table->string('is_published');
             $table->softDeletes();

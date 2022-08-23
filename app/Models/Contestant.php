@@ -11,6 +11,7 @@ class Contestant extends Model
 
     protected $fillable = [
         'prize_id',
+        'slot_no',
         'code_name',
         'real_name',
         'phone_no',

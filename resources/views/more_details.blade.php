@@ -38,10 +38,30 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="card-body px-0">
-                        <div class="tab-content p-0">
-                            <div class="tab-pane fade show active" id="tab-slots" role="tabpanel" style="position: relative;">
-
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="tab-slots" role="tabpanel"
+                                 style="position: relative;">
+                                <div class="row">
+                                    @foreach($contestants as $contestant)
+                                        <div class="col-4 pe-0 mb-1">
+                                            <div class="card border">
+                                                <div class="card-body py-2">
+                                                    <div class="card-title m-0">
+                                                         No. {{ $contestant->slot_no }}
+                                                        @if($contestant->code_name)
+                                                            <i class='bx bxs-purchase-tag-alt text-info'></i>
+                                                            {{ $contestant->code_name }}
+                                                        @else
+                                                            <i class='bx bxs-purchase-tag-alt text-success'></i>
+                                                            Slot still Open
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="tab-images" role="tabpanel"
                                  style="position: relative;">

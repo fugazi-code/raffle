@@ -16,8 +16,9 @@ class HomepageController extends Controller
 
     public function details($id)
     {
-        $prize = Prize::query()->with('image')->find($id);
+        $prize = Prize::query()->where('code', $id)->with('image')->firstOrFail();
 
-        return view('more_details', compact('prize'));
+        $contestants = Contestant::query()->where('prize_id', $id)->orderBy('id')->get();
+        return view('more_details', compact('prize', 'contestants'));
     }
 }

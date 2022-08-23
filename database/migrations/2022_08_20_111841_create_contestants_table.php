@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('prize_id');
             $table->string('slot_no');
-            $table->string('code_name');
-            $table->string('real_name');
-            $table->string('phone_no');
+            $table->string('code_name')->nullable();
+            $table->string('phone_no')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->timestamps();

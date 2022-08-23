@@ -12,9 +12,15 @@
                                     <h5 class="card-title">{{ $item->name }}</h5>
                                     <p class="card-text">
                                     <div class="d-flex flex-row">
-                                        {{--                                            <a href="#" class="btn btn-primary">Join Now</a>--}}
                                         <a href="{{ route('details.id', ['id' => $item->id]) }}" class="btn btn-primary">More Details</a>
                                     </div>
+                                    </p>
+                                    <p class="card-text">
+                                        Open Slot: {{ $item->open_slots_count }}
+                                        Closed Slot: {{ $item->closed_slots_count }}
+                                    </p>
+                                    <p class="card-text">
+                                        Bet: {{ $item->bet }}Php
                                     </p>
                                     <p class="card-text">
                                         <small class="text-muted">{{ \Carbon\Carbon::parse($item->create_at)->format('F j, Y') }}</small>

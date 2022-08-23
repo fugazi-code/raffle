@@ -22,4 +22,14 @@ class Prize extends Model
     {
         return $this->hasMany(Image::class, 'prize_id', 'id');
     }
+
+    public function openSlots(): HasMany
+    {
+        return $this->hasMany(Contestant::class, 'prize_id', 'id')->whereNull('code_name');
+    }
+
+    public function closedSlots(): HasMany
+    {
+        return $this->hasMany(Contestant::class, 'prize_id', 'id')->whereNotNull('code_name');
+    }
 }

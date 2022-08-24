@@ -52,6 +52,6 @@ class Contestants extends Component
 
     public function remove($id)
     {
-
+        Contestant::destroy($id);
     }
 }

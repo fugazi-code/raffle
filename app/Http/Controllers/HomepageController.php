@@ -22,7 +22,8 @@ class HomepageController extends Controller
     {
         $prize = Prize::query()->where('code', $id)->with('image')->firstOrFail();
 
-        $contestants = Contestant::query()->where('prize_id', $id)->orderBy('id')->get();
+        $contestants = Contestant::query()->where('prize_id', $prize->id)->orderBy('id')->get();
+
         return view('more_details', compact('prize', 'contestants'));
     }
 }

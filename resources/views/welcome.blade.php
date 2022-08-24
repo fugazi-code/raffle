@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-4">
                                 @isset($item->image[0])
-                                    <img class="card-img card-img-right" style="height: 150px;" src="storage/{{ asset($item->image[0]['path']) }}" alt="Card image cap">
+                                    <img class="card-img card-img-right" style="height: 150px;" src="{{ asset('storage/' . $item->image[0]['path']) }}" alt="Card image cap">
                                 @endisset
                             </div>
                         </div>

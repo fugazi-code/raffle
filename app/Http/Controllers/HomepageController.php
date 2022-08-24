@@ -9,7 +9,11 @@ class HomepageController extends Controller
 {
     public function index()
     {
-        $prize = Prize::query()->with('image')->withCount(['openSlots', 'closedSlots'])->paginate(10);
+        $prize = Prize::query()
+                      ->where('is_published', 1)
+                      ->with('image')
+                      ->withCount(['openSlots', 'closedSlots'])
+                      ->paginate(10);
 
         return view('welcome', compact('prize'));
     }

@@ -39,7 +39,7 @@ class Contestants extends Component
     public function store()
     {
         $this->detail['prize_id'] = $this->prize->id;
-        $this->detail['slot_no']  = 1 + Contestant::query()->where('prize_id', $this->prizeID)->max('slot_no');
+        $this->detail['slot_no']  = 1 + Contestant::query()->where('prize_id', $this->prizeID)->count();
         Contestant::create($this->detail);
     }
 

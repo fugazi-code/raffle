@@ -12,7 +12,7 @@
                                     <h5 class="card-title">{{ $item->name }}</h5>
                                     <p class="card-text">
                                     <div class="d-flex flex-row">
-                                        <a href="{{ route('details.id', ['id' => $item->code]) }}" class="btn btn-primary">More Details</a>
+                                        <a href="{{ route('details.id', ['id' => $item->code]) }}" class="btn btn-sm btn-primary">More Details</a>
                                     </div>
                                     </p>
                                     <p class="card-text">

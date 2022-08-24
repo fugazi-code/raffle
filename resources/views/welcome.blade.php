@@ -16,20 +16,16 @@
                                     </div>
                                     </p>
                                     <p class="card-text">
-                                        Open Slot: {{ $item->open_slots_count }}
-                                        Closed Slot: {{ $item->closed_slots_count }}
-                                    </p>
-                                    <p class="card-text">
-                                        Bet: {{ $item->bet }}Php
-                                    </p>
-                                    <p class="card-text">
+                                        Open Slot: {{ $item->open_slots_count }} <br>
+                                        Closed Slot: {{ $item->closed_slots_count }} <br>
+                                        Bet: {{ $item->bet }}Php <br>
                                         <small class="text-muted">{{ \Carbon\Carbon::parse($item->create_at)->format('F j, Y') }}</small>
                                     </p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 @isset($item->image[0])
-                                    <img class="card-img card-img-right" style="height: 150px;" src="{{ asset($item->image[0]['path']) }}" alt="Card image cap">
+                                    <img class="card-img card-img-right" style="height: 150px;" src="storage/{{ asset($item->image[0]['path']) }}" alt="Card image cap">
                                 @endisset
                             </div>
                         </div>

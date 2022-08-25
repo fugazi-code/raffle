@@ -32,4 +32,9 @@ class Prize extends Model
     {
         return $this->hasMany(Contestant::class, 'prize_id', 'id')->whereNotNull('code_name');
     }
+
+    public function draws()
+    {
+        return $this->hasMany(Drawed::class, 'prize_id', 'id');
+    }
 }

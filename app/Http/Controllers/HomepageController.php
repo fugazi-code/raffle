@@ -12,7 +12,7 @@ class HomepageController extends Controller
         $prize = Prize::query()
                       ->where('is_published', 1)
                       ->with('image')
-                      ->withCount(['openSlots', 'closedSlots'])
+                      ->withCount(['openSlots', 'closedSlots', 'draws'])
                       ->paginate(10);
 
         return view('welcome', compact('prize'));

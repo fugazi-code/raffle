@@ -28,10 +28,10 @@ class Contestants extends Component
     public function render()
     {
         $this->contestant = Contestant::query()->where('prize_id', $this->prizeID)->get()->toArray();
-        $this->openSlots = Contestant::query()
-                                     ->where('prize_id', $this->prizeID)
-                                     ->whereNull('code_name')
-                                     ->count();
+        $this->openSlots  = Contestant::query()
+                                      ->where('prize_id', $this->prizeID)
+                                      ->whereNull('code_name')
+                                      ->count();
 
         return view('livewire.contestants', ['prize' => $this->prize]);
     }
@@ -39,6 +39,7 @@ class Contestants extends Component
     public function store()
     {
         $this->detail['prize_id'] = $this->prize->id;
+        $this->detail['is_paid']  = 0;
         $this->detail['slot_no']  = Contestant::query()->where('prize_id', $this->prizeID)->count();
         Contestant::create($this->detail);
     }

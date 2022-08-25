@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('contestants', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('prize_id');
+            $table->integer('is_paid');
             $table->string('slot_no');
             $table->string('code_name')->nullable();
             $table->string('phone_no')->nullable();

@@ -57,6 +57,11 @@
                                                             Slot still Open
                                                         @endif
                                                     </div>
+                                                        @if($contestant->is_paid)
+                                                            <span class="badge rounded-pill bg-success">Confirmed</span>
+                                                        @else
+                                                            <span class="badge rounded-pill bg-warning">Pending</span>
+                                                        @endisset
                                                 </div>
                                             </div>
                                         </div>

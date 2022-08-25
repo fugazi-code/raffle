@@ -39,8 +39,10 @@
                                     <input name="code_name" class="form-control" wire:model.debounce.500ms="contestant.{{$key}}.code_name">
                                 </div>
                                 <div class="col-md-3">
-                                    <label>Phone No.</label>
-                                    <input name="phone_no" class="form-control" wire:model.debounce.500ms="contestant.{{$key}}.phone_no">
+                                    <div class="form-check form-switch mt-4">
+                                        <input class="form-check-input" type="checkbox" value="1" wire:model.debounce.500ms="contestant.{{$key}}.is_paid">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Is Paid?</label>
+                                    </div>
                                 </div>
                                 <div class="col-md-3 d-flex flex-column">
                                     <div class="col-md-auto my-auto">

@@ -24,7 +24,6 @@ class Draw extends Component
                               ->orderBy('created_at')
                               ->get()
                               ->toArray();
-
         $this->contestant = Contestant::query()
                                       ->where('prize_id', $this->prize)
                                       ->whereNotIn('id', collect($this->drawed)->pluck('contestant_id'))

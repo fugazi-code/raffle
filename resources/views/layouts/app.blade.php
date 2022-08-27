@@ -84,5 +84,7 @@
     <x-throwexceptions::scripts/>
 
     @livewireScripts
+
+    @stack('scripts')
 </body>
 </html>

@@ -31,7 +31,6 @@ class HomepageController extends Controller
                               ->orderBy('created_at')
                               ->get()
                               ->toArray();
-        dump($drawed);
         return view('more_details', compact('prize', 'contestants', 'drawed'));
     }
 }

@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-4 mb-4 order-0">
-                <div class="card">
+            <div class="col-md-4 mb-5 order-0">
+                <div class="card mb-2">
                     <div class="d-flex align-items-end row">
                         <div class="col-12">
                             <div class="card-body">
@@ -15,6 +15,22 @@
                                 {{--                            <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>--}}
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="d-flex align-items-end row">
+                        @if($drawed)
+                            <div class="col-12">
+                                <div class="card-body">
+                                    <h3 class="card-title text-primary">Draws</h3>
+                                    @foreach($drawed as $key => $item)
+                                        <p class="mb-4">
+                                            <label>{{ $item['contestant']['code_name'] }}</label>
+                                        </p>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -44,7 +60,7 @@
                                  style="position: relative;">
                                 <div class="row">
                                     @foreach($contestants as $contestant)
-                                        <div class="col-4 pe-0 mb-1">
+                                        <div class="col-md-3 pe-0 mb-1">
                                             <div class="card border">
                                                 <div class="card-body py-2">
                                                     <div class="card-title m-0">
@@ -54,7 +70,7 @@
                                                             {{ $contestant->code_name }}
                                                         @else
                                                             <i class='bx bxs-purchase-tag-alt text-success'></i>
-                                                            Slot still Open
+                                                            Open Slot
                                                         @endif
                                                     </div>
                                                         @if($contestant->is_paid)

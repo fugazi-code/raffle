@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contestant;
+use App\Models\Drawed;
 use App\Models\Prize;
 
 class HomepageController extends Controller
@@ -24,6 +25,13 @@ class HomepageController extends Controller
 
         $contestants = Contestant::query()->where('prize_id', $prize->id)->orderBy('id')->get();
 
-        return view('more_details', compact('prize', 'contestants'));
+        $drawed = Drawed::query()
+                              ->with('contestant')
+                              ->where('draweds.prize_id', $prize->id)
+                              ->orderBy('created_at')
+                              ->get()
+                              ->toArray();
+        dump($drawed);
+        return view('more_details', compact('prize', 'contestants', 'drawed'));
     }
 }

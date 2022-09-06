@@ -24,7 +24,6 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/theme/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
     <link rel="stylesheet" href="/theme/assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->

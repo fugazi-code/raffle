@@ -14,6 +14,8 @@ class Contestants extends Component
 
     public int $openSlots;
 
+    public $range = ['from' => 0, 'to' => 0];
+
     public $prize;
 
     public $prizeID;
@@ -30,7 +32,10 @@ class Contestants extends Component
         $this->contestant = Contestant::query()->where('prize_id', $this->prizeID)->get()->toArray();
         $this->openSlots  = Contestant::query()
                                       ->where('prize_id', $this->prizeID)
-                                      ->whereNull('code_name')
+                                      ->where(function ($q) {
+                                          $q->whereNull('code_name')
+                                            ->orWhere('code_name', '');
+                                      })
                                       ->count();
 
         return view('livewire.contestants', ['prize' => $this->prize]);
@@ -38,10 +43,24 @@ class Contestants extends Component
 
     public function store()
     {
-        $this->detail['prize_id'] = $this->prize->id;
-        $this->detail['is_paid']  = 0;
-        $this->detail['slot_no']  = Contestant::query()->where('prize_id', $this->prizeID)->count();
-        Contestant::create($this->detail);
+        $this->validate([
+            'range.from' => 'required|numeric|min:0',
+            'range.to' => 'required|numeric|min:'.$this->range['from'],
+        ]);
+
+        for ($x = $this->range['from']; $x <= $this->range['to']; $x++) {
+            if ($x < 10) {
+                $slot = "0-" . $x;
+            } else {
+                $slot = join('-', str_split($x)) ;
+            }
+
+            $this->detail['prize_id'] = $this->prize->id;
+            $this->detail['is_paid']  = 0;
+            $this->detail['slot_no']  = $slot;
+
+            Contestant::query()->create($this->detail);
+        }
     }
 
     public function updated()
@@ -53,6 +72,6 @@ class Contestants extends Component
 
     public function remove($id)
     {
-        Contestant::destroy($id);
+        Contestant::query()->where('prize_id', $id)->delete();
     }
 }

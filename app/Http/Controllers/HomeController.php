@@ -71,4 +71,11 @@ class HomeController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function delete($id)
+    {
+        Prize::destroy($id);
+
+        return redirect()->route('home');
+    }
 }

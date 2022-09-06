@@ -148,7 +148,7 @@
                 // Click handler for spin button.
                 // -------------------------------------------------------
                 function startSpin() {
-                    theWheel.animation.spins = 15;
+                    theWheel.animation.spins = 25;
 
                     // Begin the spin animation by calling startAnimation on the wheel object.
                     theWheel.startAnimation();

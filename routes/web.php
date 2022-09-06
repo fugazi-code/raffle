@@ -38,6 +38,7 @@ Route::middleware('auth:web')->group(function () {
 
     Route::get('/edit/prize/{prize}', [HomeController::class, 'edit'])->name('prize.edit');
     Route::post('/update/prize/{id}', [HomeController::class, 'update'])->name('prize.update');
+    Route::get('/delete/prize/{id}', [HomeController::class, 'delete'])->name('prize.delete');
 
     Route::get('/show/images/{id}', [ImageController::class, 'show'])->name('image.show');
     Route::post('/upload/images/{id}', [ImageController::class, 'upload'])->name('image.upload');

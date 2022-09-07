@@ -36,13 +36,13 @@
             </div>
             <div class="col-md-5">
                 <ul class="list-group list-group-flush">
-                    @foreach($drawed as $key => $item)
+                    @if($item['contestant'])
                         <li class="list-group-item">
                             Draw #{{ $key + 1 }} <br>
                             Slot #{{ $item['contestant']['slot_no'] }} <br>
                             {{ $item['contestant']['code_name'] }}
                         </li>
-                    @endforeach
+                    @endif
                 </ul>
             </div>
         </div>

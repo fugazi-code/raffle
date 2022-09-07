@@ -24,12 +24,25 @@ class Draw extends Component
                               ->orderBy('created_at')
                               ->get()
                               ->toArray();
+
         $this->contestant = Contestant::query()
                                       ->where('prize_id', $this->prize)
                                       ->whereNotIn('id', collect($this->drawed)->pluck('contestant_id'))
                                       ->get();
-        dd($this->drawed);
+        $this->cleansOrphanedDraws();
+
         return view('livewire.draw');
+    }
+
+    public function cleansOrphanedDraws()
+    {
+        foreach ($this->drawed as $item)
+        {
+            if(!$item['contestant'])
+            {
+                Drawed::query()->where('contestant_id', $item['contestant_id'])->delete();
+            }
+        }
     }
 
     public function setDrawed($id)

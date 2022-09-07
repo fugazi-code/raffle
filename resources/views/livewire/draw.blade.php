@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
                         <div class="row justify-content-center">
@@ -14,7 +14,7 @@
                                 <h1 class="m-0 text-success"><i class="bx bxs-hand-down"></i></h1>
                             </div>
                             <div class="col-md-12 text-center">
-                                <canvas id="canvas" width="720" height="720">
+                                <canvas id="canvas" width="800" height="800">
                                     <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas.
                                         Please try
                                         another.</p>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <ul class="list-group list-group-flush">
                     @foreach($drawed as $key => $item)
                         <li class="list-group-item">
@@ -96,7 +96,7 @@
             // Create new wheel object specifying the parameters at creation time.
             var theWheel = new Winwheel({
                 'numSegments': {{ count($contestant) }},     // Specify number of segments.
-                'outerRadius': 212,   // Set outer radius so wheel fits inside the background.
+                'outerRadius': 380,   // Set outer radius so wheel fits inside the background.
                 'textFontSize': 20,    // Set font size as desired.
                 'segments':        // Define segments including colour and text.
                     [

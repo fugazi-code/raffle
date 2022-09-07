@@ -93,8 +93,8 @@
                         [
                                 @foreach($contestant as $key => $value)
                             {
-                                'fillStyle': @if($key%2) '#F7B80E' @else '#FCE32D' @endif,
-                                'id': '{{ $value->id }}', 'text': '#{{ $value->slot_no }} {{ $value->code_name }}'
+                                'fillStyle': @if($key%2) '#9cfa61' @else '#FCE32D' @endif,
+                                'id': '{{ $value->id }}', 'text': '{{ $value->slot_no }} {{ $value->code_name }}'
                             },
                             @endforeach
                         ],

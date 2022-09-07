@@ -28,7 +28,7 @@ class Draw extends Component
                                       ->where('prize_id', $this->prize)
                                       ->whereNotIn('id', collect($this->drawed)->pluck('contestant_id'))
                                       ->get();
-
+        dd($this->drawed);
         return view('livewire.draw');
     }
 

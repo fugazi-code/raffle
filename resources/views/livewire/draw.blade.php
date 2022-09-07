@@ -14,7 +14,7 @@
                                 <h1 class="m-0 text-success"><i class="bx bxs-hand-down"></i></h1>
                             </div>
                             <div class="col-md-12 text-center">
-                                <canvas id="canvas" width="434" height="434">
+                                <canvas id="canvas" width="720" height="720">
                                     <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas.
                                         Please try
                                         another.</p>

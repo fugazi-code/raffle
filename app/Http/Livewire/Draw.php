@@ -52,4 +52,11 @@ class Draw extends Component
             'contestant_id' => $id,
         ]);
     }
+
+    public function removeDraw($id)
+    {
+        Drawed::destroy($id);
+
+        return redirect(request()->header('Referer'));
+    }
 }

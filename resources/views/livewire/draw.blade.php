@@ -38,9 +38,12 @@
                 <ul class="list-group list-group-flush">
                     @foreach($drawed as $key => $item)
                         <li class="list-group-item">
-                            Draw #{{ $key + 1 }} <br>
+                            <strong>Draw #{{ $key + 1 }}</strong> <br>
                             Slot #{{ $item['contestant']['slot_no'] }} <br>
                             {{ $item['contestant']['code_name'] }}
+                            <a href="#" wire:click="removeDraw({{ $item['id'] }})" class="btn btn-sm btn-danger text-white mt-2">
+                                <i class="bx bx-window-close"></i>
+                            </a>
                         </li>
                     @endforeach
                 </ul>
@@ -97,12 +100,12 @@
             var theWheel = new Winwheel({
                 'numSegments': {{ count($contestant) }},     // Specify number of segments.
                 'outerRadius': 380,   // Set outer radius so wheel fits inside the background.
-                'textFontSize': 20,    // Set font size as desired.
+                'textFontSize': 15,    // Set font size as desired.
                 'segments':        // Define segments including colour and text.
                     [
                             @foreach($contestant as $key => $value)
                         {
-                            'fillStyle': @if($key%2) '#9cfa61' @else '#FCE32D' @endif,
+                            'fillStyle': @if($key%2) '#FDFD96' @else '#C1E1C1' @endif,
                             'id': '{{ $value->id }}', 'text': '{{ $value->slot_no }} {{ $value->code_name }}'
                         },
                         @endforeach

@@ -11,7 +11,9 @@
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <div class="col-md-12 mt-2 text-center m-o">
-                                <h1 class="m-0 text-success"><i class="bx bxs-hand-down"></i></h1>
+                                <h1 class="m-0 text-success">
+                                    <i class="bx bxs-hand-down" style="font-size: 36px;"></i>
+                                </h1>
                             </div>
                             <div class="col-md-12 text-center">
                                 <canvas id="canvas" width="800" height="800">
@@ -41,7 +43,8 @@
                             <strong>Draw #{{ $key + 1 }}</strong> <br>
                             Slot #{{ $item['contestant']['slot_no'] }} <br>
                             {{ $item['contestant']['code_name'] }}
-                            <a href="#" wire:click="removeDraw({{ $item['id'] }})" class="btn btn-sm btn-danger text-white mt-2">
+                            <a href="#" wire:click="removeDraw({{ $item['id'] }})"
+                               class="btn btn-sm btn-danger text-white mt-2">
                                 <i class="bx bx-window-close"></i>
                             </a>
                         </li>
@@ -106,17 +109,18 @@
                             @foreach($contestant as $key => $value)
                         {
                             'fillStyle': @if($key%2) '#FDFD96' @else '#C1E1C1' @endif,
-                            'id': '{{ $value->id }}', 'text': '{{ $value->slot_no }} {{ $value->code_name }}'
+                            'id': '{{ $value->id }}', 'text': '{{ $value->code_name }} {{ $value->slot_no }} '
                         },
                         @endforeach
                     ],
-                'animation':           // Specify the animation to use.
-                    {
-                        'type': 'spinToStop',
-                        'duration': 10, // Duration in seconds.
-                        'spins': 8, // Number of complete spins.
-                        'callbackFinished': alertPrize
-                    }
+                'animation': { // Specify the animation to use.
+                    'type': 'spinToStop',
+                    'duration': 10, // Duration in seconds.
+                    'spins': 8, // Number of complete spins.
+                    'callbackFinished': alertPrize
+                },
+                'textAlignment'   : 'outer',
+                'textFontFamily'  : 'courier',
             });
 
             // Vars used by the code in this page to do power controls.
@@ -160,7 +164,7 @@
             // Click handler for spin button.
             // -------------------------------------------------------
             function startSpin() {
-                theWheel.animation.spins = 25;
+                theWheel.animation.spins = 18;
 
                 // Begin the spin animation by calling startAnimation on the wheel object.
                 theWheel.startAnimation();

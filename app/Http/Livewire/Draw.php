@@ -28,6 +28,7 @@ class Draw extends Component
         $this->contestant = Contestant::query()
                                       ->where('prize_id', $this->prize)
                                       ->whereNotIn('id', collect($this->drawed)->pluck('contestant_id'))
+                                      ->inRandomOrder()
                                       ->get();
         $this->cleansOrphanedDraws();
 

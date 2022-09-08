@@ -75,15 +75,13 @@
                                                     <div class="card-title m-0">
                                                         No. {{ $contestant->slot_no }}
                                                         @if($contestant->code_name)
-                                                            <i class='bx bxs-purchase-tag-alt text-info'></i>
                                                             {{ $contestant->code_name }}
-                                                        @else
-                                                            <i class='bx bxs-purchase-tag-alt text-success'></i>
-                                                            Open Slot
                                                         @endif
                                                     </div>
                                                     @if($contestant->is_paid)
                                                         <span class="badge rounded-pill bg-success">Confirmed</span>
+                                                    @elseif(!$contestant->code_name && $contestant->is_paid)
+                                                        <span class="badge rounded-pill bg-info">Open Slot</span>
                                                     @else
                                                         <span class="badge rounded-pill bg-warning">Pending</span>
                                                     @endisset

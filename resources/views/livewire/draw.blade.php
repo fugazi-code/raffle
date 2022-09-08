@@ -40,13 +40,23 @@
                 <ul class="list-group list-group-flush">
                     @foreach($drawed as $key => $item)
                         <li class="list-group-item">
-                            <strong>Draw #{{ $key + 1 }}</strong> <br>
-                            Slot #{{ $item['contestant']['slot_no'] }} <br>
-                            {{ $item['contestant']['code_name'] }}
-                            <a href="#" wire:click="removeDraw({{ $item['id'] }})"
-                               class="btn btn-sm btn-danger text-white mt-2">
-                                <i class="bx bx-window-close"></i>
-                            </a>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between">
+                                        <strong class="my-auto">{{ $key + 1 }}# Draw</strong>
+                                        <a href="#" wire:click="removeDraw({{ $item['id'] }})"
+                                           class="btn btn-sm btn-danger text-white mt-2">
+                                            <i class="bx bx-x"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    Slot No. {{ $item['contestant']['slot_no'] }}
+                                </div>
+                                <div class="col-12">
+                                    {{ $item['contestant']['code_name'] }}
+                                </div>
+                            </div>
                         </li>
                     @endforeach
                 </ul>

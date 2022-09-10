@@ -17,8 +17,6 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/theme/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-    <link rel="stylesheet" href="/theme/assets/vendor/libs/apex-charts/apex-charts.css" />
-
     <!-- Page CSS -->
     <!-- Helpers -->
     <script src="/theme/assets/vendor/js/helpers.js"></script>
@@ -26,7 +24,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/theme/assets/js/config.js"></script>
-
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @stack('head')
 </head>
 <body>

@@ -27,12 +27,17 @@ class Prize extends Model
 
     public function openSlots(): HasMany
     {
-        return $this->hasMany(Contestant::class, 'prize_id', 'id')->whereNull('code_name');
+        return $this->hasMany(Contestant::class, 'prize_id', 'id')->whereNull('code_name')->orWhere('code_name', '');
+    }
+    
+    public function paid(): HasMany
+    {
+        return $this->hasMany(Contestant::class, 'prize_id', 'id')->where('is_paid', 1);
     }
 
-    public function closedSlots(): HasMany
+    public function unpaid(): HasMany
     {
-        return $this->hasMany(Contestant::class, 'prize_id', 'id')->whereNotNull('code_name');
+        return $this->hasMany(Contestant::class, 'prize_id', 'id')->where('is_paid', 0);
     }
 
     public function draws()

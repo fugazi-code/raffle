@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 mb-4">
+            <div class="col-md-8 mb-4 p-0">
                 <div class="card h-100">
                     <div class="card-header">
                         <ul class="nav nav-pills" role="tablist">
@@ -63,29 +63,27 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-0">
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="tab-slots" role="tabpanel"
                                  style="position: relative;">
                                 <div class="row">
                                     @foreach($contestants as $contestant)
-                                        <div class="col-md-3 pe-0 mb-1">
-                                            <div class="card border">
-                                                <div class="card-body py-2">
-                                                    <div class="card-title m-0">
-                                                        No. {{ $contestant->slot_no }}
-                                                        @if($contestant->code_name)
-                                                            {{ $contestant->code_name }}
-                                                        @endif
-                                                    </div>
-                                                    @if($contestant->is_paid)
-                                                        <span class="badge rounded-pill bg-success">Confirmed</span>
-                                                    @elseif(!$contestant->code_name && !$contestant->is_paid)
-                                                        <span class="badge rounded-pill bg-info">Open Slot</span>
-                                                    @else
-                                                        <span class="badge rounded-pill bg-warning">Pending</span>
-                                                    @endisset
+                                        <div class="col-6 col-md-3 p-0">
+                                            <div class="border border-danger p-1 d-flex flex-wrap">
+                                                <div class="bg-danger px-1 fw-bold text-white me-1">
+                                                    {{ $contestant->slot_no }}
                                                 </div>
+                                                @if($contestant->is_paid)
+                                                    <span class="badge rounded-pill bg-success">&nbsp;</span>
+                                                @elseif(!$contestant->code_name && !$contestant->is_paid)
+                                                    <span class="badge rounded-pill bg-info">&nbsp;</span>
+                                                @else
+                                                    <span class="badge rounded-pill bg-warning">&nbsp;</span>
+                                                @endisset
+                                                @if($contestant->code_name)
+                                                    <label>{{ $contestant->code_name }}</label>
+                                                @endif
                                             </div>
                                         </div>
                                     @endforeach

@@ -31,7 +31,7 @@
 <nav class="navbar navbar-example navbar-expand-lg mb-5 bg-white">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('images/logo_1.png') }}" class="img-fluid" style="height: 46px;">
+            <img src="{{ asset('images/logo_1.svg') }}" class="img-fluid" style="height: 46px;">
         </a>
     </div>
 </nav>

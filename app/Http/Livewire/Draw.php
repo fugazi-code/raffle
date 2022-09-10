@@ -14,7 +14,9 @@ class Draw extends Component
 
     public $drawed;
 
-    protected $queryString = ['prize'];
+    public $shuffle;
+
+    protected $queryString = ['prize', 'shuffle'];
 
     public function render()
     {
@@ -28,11 +30,20 @@ class Draw extends Component
         $this->contestant = Contestant::query()
                                       ->where('prize_id', $this->prize)
                                       ->whereNotIn('id', collect($this->drawed)->pluck('contestant_id'))
-                                      ->inRandomOrder()
+                                      ->when($this->shuffle, function($q) {
+                                        $q->inRandomOrder();
+                                      })
                                       ->get();
         $this->cleansOrphanedDraws();
 
         return view('livewire.draw');
+    }
+
+    public function shuffleNow()
+    {
+        $this->shuffle = 1;
+
+        return redirect()->route('draw.index', ['prize' => $this->prize, 'shuffle' => $this->shuffle]);
     }
 
     public function cleansOrphanedDraws()

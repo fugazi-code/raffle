@@ -24,12 +24,19 @@
                             </div>
                             <div class="col-md-12 mt-2">
                                 <div class="d-grid gap-1" x-data="{nextGame: 1}">
+                                    <button x-show="nextGame" type="button"
+                                            class="btn btn-warning" wire:click="shuffleNow()">SHUFFLE
+                                    </button>
                                     <button x-show="nextGame" @click="nextGame = 0" type="button"
                                             class="btn btn-primary" onClick="startSpin();">SPIN NOW
                                     </button>
                                     <button x-show="!nextGame" @click="nextGame = 1" type="button"
                                             class="btn btn-primary" onClick="resetWheel();">RESET
                                     </button>
+                                
+                                    <a href="/home"
+                                            class="btn btn-secondary" onClick="resetWheel();">CANCEL
+                                </a>
                                 </div>
                             </div>
                         </div>

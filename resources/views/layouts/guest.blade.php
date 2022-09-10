@@ -28,7 +28,7 @@
     @stack('head')
 </head>
 <body>
-<nav class="navbar navbar-example navbar-expand-lg mb-5 bg-white">
+<nav class="navbar navbar-example navbar-expand-lg mb-5 shadow-sm" style="background-color: #ddd35b !important;">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <img src="{{ asset('images/logo_1.svg') }}" class="img-fluid" style="height: 46px;">

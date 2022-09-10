@@ -33,8 +33,8 @@
                                 <div class="card-body">
                                     <h3 class="card-title text-primary">Draws</h3>
                                     @foreach($drawed as $key => $item)
-                                        <p class="mb-4">
-                                            <label>{{ $item['contestant']['code_name'] }}</label>
+                                        <p class="mb-2">
+                                            <label>{{ $key + 1 }}. {{ $item['contestant']['code_name'] }}</label>
                                         </p>
                                     @endforeach
                                 </div>

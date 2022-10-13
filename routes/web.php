@@ -33,12 +33,12 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::post('/fetch/prize', [HomeController::class, 'fetchPrize'])->name('prize.fetch');
 
-    Route::get('/create/prize', [HomeController::class, 'create'])->name('prize.create');
     Route::post('/store/prize', [HomeController::class, 'store'])->name('prize.store');
+    Route::get('/create/prize', [HomeController::class, 'create'])->name('prize.create');
 
     Route::get('/edit/prize/{prize}', [HomeController::class, 'edit'])->name('prize.edit');
-    Route::post('/update/prize/{id}', [HomeController::class, 'update'])->name('prize.update');
     Route::get('/delete/prize/{id}', [HomeController::class, 'delete'])->name('prize.delete');
+    Route::post('/update/prize/{id}', [HomeController::class, 'update'])->name('prize.update');
 
     Route::get('/show/images/{id}', [ImageController::class, 'show'])->name('image.show');
     Route::post('/upload/images/{id}', [ImageController::class, 'upload'])->name('image.upload');
@@ -47,4 +47,8 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/contestant', Contestants::class)->name('contestant.index');
 
     Route::get('/draw', Draw::class)->name('draw.index');
+
+    Route::get('/users', UsersLivewire::class)->name('users.index');
+
+    Route::get('/audits', AuditsLivewire::class)->name('audits.index');
 });
